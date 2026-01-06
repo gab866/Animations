@@ -1,414 +1,350 @@
-body {
-  background: white;
+/* ========================================
+   ATIVIDADE 1 - FORMULÁRIO
+   ======================================== */
+.form-group {
+  margin-bottom: 20px;
 }
 
-.container {
+.input-wrapper {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.input-field {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  background: white;
+  transition: border-color 0.3s;
+}
+
+.input-field:focus {
+  outline: none;
+  border-color: #666;
+}
+
+.input-label {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #999;
+  pointer-events: none;
+  transition: all 0.3s;
+  background: white;
+  padding: 0 4px;
+}
+
+.input-field:focus + .input-label,
+.input-field:not(:placeholder-shown) + .input-label {
+  top: 0;
+  font-size: 12px;
+  color: #666;
+}
+
+.submit-btn {
+  width: 100%;
+  padding: 12px;
+  background: #666;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.submit-btn:hover {
+  background: #555;
+}
+
+/* ========================================
+   ATIVIDADE 2 - LOADERS
+   ======================================== */
+.loader-container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  min-height: 100vh;
-  gap: 2rem;
+  gap: 15px;
+  padding: 30px;
+  background: #fafafa;
+  border-radius: 4px;
+  margin-bottom: 20px;
 }
 
-.input-group {
-  position: relative;
-  width: 300px;
-  margin: 30px 0;
+.loader-label {
+  font-size: 14px;
+  color: #666;
 }
 
-.input-group input {
-  width: 100%;
-  padding: 20px 0 8px 0;
-  border: none;
-  border-bottom: 2px solid #000;
-  background: transparent;
-  outline: none;
-  font-size: 16px;
-  color: #000;
-  text-align: center;
-}
-
-.input-group label {
-  position: absolute;
-  top: 20px;
-  left: 50%;
-  transform: translateX(-50%);
-  font-size: 16px;
-  color: #000;
-  pointer-events: none;
-  transition: all 0.3s ease;
-  z-index: 1;
-}
-
-.input-group input:focus {
-  border-bottom-color: #000;
-}
-
-.input-group:focus-within label,
-.input-group input:not([value=""]) + label {
-  top: -5px;
-  font-size: 12px;
-  transform: translateX(-50%);
-}
-
-.input-group input::placeholder {
-  color: transparent;
-}
-
-.button-group button {
-  position: relative;
-  padding: 12px 24px;
-  background: #3e4042;
-  color: white;
-  cursor: pointer;
-  font-size: 16px;
-  overflow: hidden;
-}
-
-.button-group button::before,
-.button-group button::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  width: 0;
-  height: 100%;
-  background: rgba(255, 255, 255, 0.2);
-}
-
-.button-group button::before {
-  left: 0;
-}
-
-.button-group button::after {
-  right: 0;
-}
-
-.button-group button:hover {
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-}
-
-.button-group button:hover::before,
-.button-group button:hover::after {
-  animation: slideInOut 1s ease;
-}
-
-.button-group button:focus {
-  outline: none;
-}
-
-.button-group button:focus::before,
-.button-group button:focus::after {
-  animation: slideInOut 0.6s ease;
-}
-
-@keyframes slideInOut {
-  0% {
-    width: 0;
-    opacity: 1;
-  }
-  50% {
-    width: 25%;
-    opacity: 1;
-  }
-  100% {
-    width: 25%;
-    opacity: 0;
-  }
-}
-
-h2,
-h3 {
-  color: #000;
-  margin: 10px 0;
-}
-
-/* ATIVIDADE 2 - EXERCÍCIO 1 */
-
-.loader2 {
-  width: 80px;
-  height: 80px;
-  border: 8px solid #808080;
-  border-top: 8px solid #000;
+/* Spinner */
+.spinner-loader {
+  width: 50px;
+  height: 50px;
+  border: 5px solid #e0e0e0;
+  border-top: 5px solid #666;
   border-radius: 50%;
   animation: spin 1s linear infinite;
 }
 
 @keyframes spin {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
+  to { transform: rotate(360deg); }
 }
 
-/* ATIVIDADE 2 - EXERCÍCIO 2 */
-
-.loader-container {
-  width: 120px;
-  height: 120px;
-  border: 2px dotted #000;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 20px 0;
-}
-
-.loader3 {
-  width: 80px;
-  height: 80px;
-  border: 8px solid #808080;
-  border-top: 8px solid #000;
+/* Pulse */
+.pulse-loader {
+  width: 50px;
+  height: 50px;
+  background: #666;
   border-radius: 50%;
+  animation: pulse 1.5s ease-in-out infinite;
 }
 
-.loader-container:hover .loader3 {
-  animation: spin 1s linear infinite;
-}
-
-/* ATIVIDADE 2 - EXERCÍCIO 3 */
-
-.loader {
-  display: flex;
-  flex-direction: row;
-  justify-items: center;
-  align-items: center;
-  width: 100px;
-  height: 100px;
-  border: 2px solid gray;
-}
-
-.loader div {
-  width: 25px;
-  height: 25px;
-}
-
-#bit1 {
-  background-color: lightgray;
-  animation: b1 1s linear 0.9s infinite paused;
-  transform: translate(71px, 0px);
-}
-
-#bit2 {
-  background-color: gray;
-  animation: b2 1s linear 0.7s infinite paused;
-  transform: translate(23px, 0px);
-}
-
-#bit3 {
-  background-color: black;
-  animation: b3 1s linear 0.5s infinite paused;
-  transform: translate(-71px, 0px);
-}
-
-.loader:hover #bit1,
-.loader:hover #bit2,
-.loader:hover #bit3 {
-  animation-play-state: running;
-}
-
-@keyframes b1 {
-  0%,
-  100% {
-    transform: translate(0px, 0px);
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
   }
   50% {
-    transform: translate(50px, 0px);
-    opacity: 0.1;
-  }
-}
-
-@keyframes b2 {
-  0%,
-  100% {
-    transform: translate(-25px, 0px);
-  }
-  50% {
-    transform: translate(25px, 0px);
+    transform: scale(1.2);
     opacity: 0.5;
   }
 }
 
-@keyframes b3 {
-  0%,
-  100% {
-    transform: translate(-50px, 0px);
+/* Dots */
+.dots-loader {
+  display: flex;
+  gap: 8px;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #666;
+  animation: bounce 1.4s infinite ease-in-out both;
+}
+
+.dot:nth-child(1) { animation-delay: -0.32s; }
+.dot:nth-child(2) { animation-delay: -0.16s; }
+.dot:nth-child(3) { animation-delay: 0s; }
+
+@keyframes bounce {
+  0%, 80%, 100% {
+    transform: scale(0);
+    opacity: 0.5;
   }
-  50% {
-    transform: translate(0px, 0px);
+  40% {
+    transform: scale(1);
+    opacity: 1;
   }
 }
 
-/* ATIVIDADE 2 - EXERCÍCIO 4 */
+/* Bars */
+.bars-loader {
+  display: flex;
+  gap: 4px;
+  align-items: flex-end;
+  height: 50px;
+}
+
+.bar {
+  width: 6px;
+  background: #666;
+  border-radius: 2px;
+  animation: grow 1.2s ease-in-out infinite;
+}
+
+.bar:nth-child(1) { animation-delay: -0.4s; }
+.bar:nth-child(2) { animation-delay: -0.3s; }
+.bar:nth-child(3) { animation-delay: -0.2s; }
+.bar:nth-child(4) { animation-delay: -0.1s; }
+.bar:nth-child(5) { animation-delay: 0s; }
+
+@keyframes grow {
+  0%, 100% {
+    height: 15px;
+  }
+  50% {
+    height: 50px;
+  }
+}
+
+/* ========================================
+   ATIVIDADE 3 - BARRA DE PROGRESSO
+   ======================================== */
+.progress-wrapper {
+  margin-bottom: 15px;
+}
 
 .progress-container {
-  width: 300px;
+  width: 100%;
   height: 20px;
-  background-color: #e0e0e0;
-  border: 1px solid #000;
+  background: #e0e0e0;
+  border-radius: 10px;
   overflow: hidden;
 }
 
 .progress-bar {
-  width: 0;
   height: 100%;
-  background-color: red;
-  animation: fillBar 3s linear infinite paused;
+  background: #666;
+  border-radius: 10px;
+  transition: width 0.3s ease;
 }
 
-.progress-container:hover .progress-bar {
-  animation-play-state: running;
+.progress-text {
+  text-align: center;
+  margin-top: 8px;
+  font-size: 14px;
+  color: #666;
 }
 
-@keyframes fillBar {
-  0% {
-    width: 0;
-  }
-  100% {
-    width: 100%;
-  }
+.btn {
+  padding: 10px 20px;
+  background: #666;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background 0.3s;
 }
 
-/* ATIVIDADE 2 - EXERCÍCIO 5 */
-
-.container2 {
-  width: 400px;
-  height: 400px;
-  border: 2px dashed #ecf0f1;
-  position: relative;
+.btn:hover {
+  background: #555;
 }
 
-.container2 div {
-  width: 80px;
-  height: 80px;
-  position: absolute;
-  background-image: url("goblin_big.png");
-  background-size: 240px 320px;
-  opacity: 0;
+/* ========================================
+   ATIVIDADE 4 - SKELETON
+   ======================================== */
+.skeleton-card {
+  background: white;
+  padding: 20px;
+  border-radius: 4px;
+  border: 1px solid #e0e0e0;
+  margin-bottom: 15px;
 }
 
-.goblin-down {
-  background-position-y: 0px;
-  animation: walk-cycle 0.9s steps(3) infinite, move-down 8s linear infinite,
-    show-down 8s steps(1) infinite;
+.skeleton {
+  background: linear-gradient(90deg, #f0f0f0 0%, #e0e0e0 50%, #f0f0f0 100%);
+  background-size: 200% 100%;
+  animation: skeleton-loading 1.5s ease-in-out infinite;
+  border-radius: 4px;
 }
 
-.goblin-right {
-  background-position-y: -160px;
-  animation: walk-cycle 0.9s steps(3) infinite, move-right 8s linear infinite,
-    show-right 8s steps(1) infinite;
+@keyframes skeleton-loading {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
 }
 
-.goblin-up {
-  background-position-y: -80px;
-  animation: walk-cycle 0.9s steps(3) infinite, move-up 8s linear infinite,
-    show-up 8s steps(1) infinite;
+.skeleton-header {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 20px;
 }
 
-.goblin-left {
-  background-position-y: -240px;
-  animation: walk-cycle 0.9s steps(3) infinite, move-left 8s linear infinite,
-    show-left 8s steps(1) infinite;
+.skeleton-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
 }
 
-@keyframes move-down {
-  0%,
-  100% {
-    top: 0;
-    left: 0;
-  }
-  25% {
-    top: 320px;
-    left: 0;
-  }
+.skeleton-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 }
 
-@keyframes move-right {
-  25% {
-    top: 320px;
-    left: 0;
-  }
-  50% {
-    top: 320px;
-    left: 320px;
-  }
+.skeleton-title {
+  height: 16px;
+  width: 60%;
 }
 
-@keyframes move-up {
-  50% {
-    top: 320px;
-    left: 320px;
-  }
-  75% {
-    top: 0;
-    left: 320px;
-  }
+.skeleton-subtitle {
+  height: 14px;
+  width: 40%;
 }
 
-@keyframes move-left {
-  75% {
-    top: 0;
-    left: 320px;
-  }
-  100% {
-    top: 0;
-    left: 0;
-  }
+.skeleton-content {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 }
 
-@keyframes show-down {
-  0%,
-  24.9% {
-    opacity: 1;
-  }
-  25%,
-  100% {
-    opacity: 0;
-  }
+.skeleton-line {
+  height: 12px;
+  width: 100%;
 }
 
-@keyframes show-right {
-  0%,
-  24.9% {
-    opacity: 0;
-  }
-  25%,
-  49.9% {
-    opacity: 1;
-  }
-  50%,
-  100% {
-    opacity: 0;
-  }
+.skeleton-line:last-child {
+  width: 70%;
 }
 
-@keyframes show-up {
-  0%,
-  49.9% {
-    opacity: 0;
-  }
-  50%,
-  74.9% {
-    opacity: 1;
-  }
-  75%,
-  100% {
-    opacity: 0;
-  }
+.content-loaded {
+  padding: 20px;
 }
 
-@keyframes show-left {
-  0%,
-  74.9% {
-    opacity: 0;
-  }
-  75%,
-  100% {
-    opacity: 1;
-  }
+.avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: #666;
 }
 
-@keyframes walk-cycle {
-  100% { background-position-x: -240px; }
+/* ========================================
+   ATIVIDADE 5 - ANIMATE.CSS
+   ======================================== */
+.demo-container {
+  background: #fafafa;
+  padding: 40px;
+  border-radius: 4px;
+  min-height: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.demo-element {
+  padding: 15px 30px;
+  background: #666;
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.control-btn {
+  padding: 8px 16px;
+  background: white;
+  border: 1px solid #ccc;
+  color: #666;
+  border-radius: 4px;
+  font-size: 13px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.control-btn:hover {
+  background: #f5f5f5;
+  border-color: #999;
+}
+
+/* ========================================
+   RESPONSIVO
+   ======================================== */
+@media (max-width: 768px) {
+  .controls {
+    justify-content: center;
+  }
 }
